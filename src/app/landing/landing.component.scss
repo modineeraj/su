@@ -1,0 +1,25 @@
+.container{
+
+  position: relative;
+  height: calc(100vh);
+
+  .example-card {
+    background-color: #F0EEED;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    button:first-child{
+      background-color: #bee3db;
+      padding: 2rem 3rem;
+      margin: 0.5rem;
+    }
+    button:nth-child(2){
+      background-color: #ffd6ba;
+      padding: 2rem 3rem;
+      margin: 0.5rem;
+    }
+
+  }
+}
