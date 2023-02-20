@@ -1,6 +1,12 @@
 <form class="sellerForm" [formGroup]="sellerForm">
+  <div>
+    <mat-chip-listbox formControlName="sellerWish" aria-label="Fish selection">
+      <mat-chip-option value="1">I wish to sell Parts only</mat-chip-option>
+      <mat-chip-option value="2">I wish to sell Whole Machine</mat-chip-option>
+    </mat-chip-listbox>
+  </div>
 
-  <div class="row-1">
+  <div class="rows row1">
     <mat-form-field appearance="outline">
       <mat-label>Device Type</mat-label>
       <mat-select formControlName="deviceType">
@@ -8,118 +14,172 @@
         <mat-option value="desktop">Desktop</mat-option>
       </mat-select>
     </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>Manufacturer</mat-label>
       <mat-select formControlName="manufacturer">
         <mat-option *ngFor="let m of manufacturer" value="{{m}}">{{m}}</mat-option>
       </mat-select>
     </mat-form-field>
-  </div>
-
 
     <mat-form-field appearance="outline">
       <mat-label>Other Manufacturer</mat-label>
-      <input matInput placeholder="Other">
+      <input matInput formControlName="otherManufacturer" placeholder="Other">
     </mat-form-field>
 
+  </div>
+
+
+
+  <div class="rows row2">
     <mat-form-field appearance="outline">
       <mat-label>Model</mat-label>
-      <input matInput placeholder="15g-br104TX">
+      <input matInput formControlName="model" placeholder="15g-br104TX">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Serial Number</mat-label>
-      <input matInput placeholder="CND8114PQK">
+      <input matInput formControlName="serialNumber" placeholder="CND8114PQK">
     </mat-form-field>
+  </div>
 
+  <div class="rows row3">
     <mat-form-field appearance="outline">
       <mat-label>Year of Manufacturing</mat-label>
-      <input matInput placeholder="2015">
+      <input matInput formControlName="yearOfManufacture" placeholder="2015">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Year of Purchase</mat-label>
-      <input matInput placeholder="2016">
+      <input matInput formControlName="yearOfPurchase" placeholder="2016">
     </mat-form-field>
+  </div>
 
     <div formGroupName="configuration">
       <h3>Configuration</h3>
-      <mat-form-field appearance="outline">
-        <mat-label>Processor</mat-label>
-        <input matInput placeholder="i5 11gen">
-      </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>RAM Type</mat-label>
-        <mat-select formControlName="ramType">
-          <mat-option *ngFor="let s of ramdrrList" value="{{s}}">{{s}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="rows row4">
+        <mat-form-field appearance="outline">
+          <mat-label>Processor</mat-label>
+          <input matInput formControlName="processor" placeholder="i5 11gen">
+        </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>RAM</mat-label>
-        <mat-select formControlName="ram">
-          <mat-option *ngFor="let r of ramStorage" value="{{r}}">{{r}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>RAM Type</mat-label>
+          <mat-select formControlName="ramType">
+            <mat-option *ngFor="let s of ramdrrList" value="{{s}}">{{s}}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Storage Type</mat-label>
-        <mat-select formControlName="storage">
-          <mat-option value="hdd">HDD</mat-option>
-          <mat-option value="ssd">SSD</mat-option>
-          <mat-option value="desktop">Both</mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>RAM</mat-label>
+          <mat-select formControlName="ram">
+            <mat-option *ngFor="let r of ramStorage" value="{{r}}">{{r}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Storage HDD</mat-label>
-        <mat-select formControlName="storageHDD">
-          <mat-option *ngFor="let h of hdd" value="{{h}}">{{h}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="rows row5">
+        <mat-form-field appearance="outline">
+          <mat-label>Storage Type</mat-label>
+          <mat-select formControlName="storage">
+            <mat-option value="hdd">HDD</mat-option>
+            <mat-option value="ssd">SSD</mat-option>
+            <mat-option value="desktop">Both</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Storage SSD</mat-label>
-        <mat-select formControlName="storageSSD">
-          <mat-option *ngFor="let s of ssd" value="{{s}}">{{s}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Storage HDD</mat-label>
+          <mat-select formControlName="storageHDD">
+            <mat-option *ngFor="let h of hdd" value="{{h}}">{{h}}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Storage SSD</mat-label>
-        <mat-select formControlName="storageSSD">
-          <mat-option *ngFor="let s of ssd" value="{{s}}">{{s}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Storage SSD</mat-label>
+          <mat-select formControlName="storageSSD">
+            <mat-option *ngFor="let s of ssd" value="{{s}}">{{s}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field appearance="outline">
-        <mat-label>DVD W/R</mat-label>
-        <mat-select formControlName="dvd">
-          <mat-option value="yes">Yes, Only Read</mat-option>
-          <mat-option value="yes">Yes, Read & Write</mat-option>
-          <mat-option value="no">Not Available</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="rows row6">
 
+
+        <mat-form-field appearance="outline">
+          <mat-label>DVD W/R</mat-label>
+          <mat-select formControlName="dvd">
+            <mat-option value="1">Yes, Only Read</mat-option>
+            <mat-option value="2">Yes, Read & Write</mat-option>
+            <mat-option value="3">Not Available</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Graphic Card</mat-label>
+          <input matInput formControlName="graphicCard" placeholder="NIVIDA G4">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Battery</mat-label>
+          <mat-select formControlName="battery">
+            <mat-option value="1">Original</mat-option>
+            <mat-option value="2">Duplicate</mat-option>
+            <mat-option value="3">Not Available</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="rows row7">
       <mat-form-field appearance="outline">
         <mat-label>Charger</mat-label>
         <mat-select formControlName="charger">
-          <mat-option value="yes">Original</mat-option>
-          <mat-option value="yes">Duplicate</mat-option>
-          <mat-option value="no">Not Available</mat-option>
+          <mat-option value="1">Original</mat-option>
+          <mat-option value="2">Duplicate</mat-option>
+          <mat-option value="3">Not Available</mat-option>
         </mat-select>
       </mat-form-field>
 
+      <div class="radio">
+        <mat-label>Is this machine customized?</mat-label>
+        <mat-radio-group formControlName='customized' >
+          <mat-radio-button value="Yes">Yes</mat-radio-button>
+          <mat-radio-button value="No">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
       <mat-form-field appearance="outline">
-        <mat-label>Battery</mat-label>
-        <mat-select formControlName="battery">
-          <mat-option value="yes">Original</mat-option>
-          <mat-option value="yes">Duplicate</mat-option>
-          <mat-option value="no">Not Available</mat-option>
-        </mat-select>
+        <mat-label>Customization Details</mat-label>
+        <input matInput formControlName="customConfiguration" placeholder="Added additional RAM">
       </mat-form-field>
     </div>
 
+    <div class="rows row8">
+      <div class="radio">
+        <mat-label>In Warranty?</mat-label>
+        <mat-radio-group formControlName='inWarranty' >
+          <mat-radio-button value="Yes">Yes</mat-radio-button>
+          <mat-radio-button value="No">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="radio">
+        <mat-label>Your Machine is still working?</mat-label>
+        <mat-radio-group formControlName='workingMachine' >
+          <mat-radio-button value="Yes">Yes</mat-radio-button>
+          <mat-radio-button value="No">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>How did it Stopped Working?</mat-label>
+        <input matInput formControlName="howDidItStop" placeholder="after upgrading the battery">
+      </mat-form-field>
+    </div>
+
+
+    <button mat-raised-button (click)="submit()">Submit</button>
 
 </form>
