@@ -15,7 +15,7 @@
       </mat-select>
     </mat-form-field>
   </div>
-  
+
 
     <mat-form-field appearance="outline">
       <mat-label>Other Manufacturer</mat-label>
@@ -42,5 +42,84 @@
       <input matInput placeholder="2016">
     </mat-form-field>
 
-  
+    <div formGroupName="configuration">
+      <h3>Configuration</h3>
+      <mat-form-field appearance="outline">
+        <mat-label>Processor</mat-label>
+        <input matInput placeholder="i5 11gen">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>RAM Type</mat-label>
+        <mat-select formControlName="ramType">
+          <mat-option *ngFor="let s of ramdrrList" value="{{s}}">{{s}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>RAM</mat-label>
+        <mat-select formControlName="ram">
+          <mat-option *ngFor="let r of ramStorage" value="{{r}}">{{r}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Storage Type</mat-label>
+        <mat-select formControlName="storage">
+          <mat-option value="hdd">HDD</mat-option>
+          <mat-option value="ssd">SSD</mat-option>
+          <mat-option value="desktop">Both</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Storage HDD</mat-label>
+        <mat-select formControlName="storageHDD">
+          <mat-option *ngFor="let h of hdd" value="{{h}}">{{h}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Storage SSD</mat-label>
+        <mat-select formControlName="storageSSD">
+          <mat-option *ngFor="let s of ssd" value="{{s}}">{{s}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Storage SSD</mat-label>
+        <mat-select formControlName="storageSSD">
+          <mat-option *ngFor="let s of ssd" value="{{s}}">{{s}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>DVD W/R</mat-label>
+        <mat-select formControlName="dvd">
+          <mat-option value="yes">Yes, Only Read</mat-option>
+          <mat-option value="yes">Yes, Read & Write</mat-option>
+          <mat-option value="no">Not Available</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Charger</mat-label>
+        <mat-select formControlName="charger">
+          <mat-option value="yes">Original</mat-option>
+          <mat-option value="yes">Duplicate</mat-option>
+          <mat-option value="no">Not Available</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Battery</mat-label>
+        <mat-select formControlName="battery">
+          <mat-option value="yes">Original</mat-option>
+          <mat-option value="yes">Duplicate</mat-option>
+          <mat-option value="no">Not Available</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
 </form>
