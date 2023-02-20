@@ -1,5 +1,6 @@
 <form class="sellerForm" [formGroup]="sellerForm">
-  <p>
+
+  <div class="row-1">
     <mat-form-field appearance="outline">
       <mat-label>Device Type</mat-label>
       <mat-select formControlName="deviceType">
@@ -7,17 +8,39 @@
         <mat-option value="desktop">Desktop</mat-option>
       </mat-select>
     </mat-form-field>
-  </p>
-  <p>
     <mat-form-field appearance="outline">
-      <mat-label>Manufracturer</mat-label>
-      <input matInput placeholder="Dell, HP..">
+      <mat-label>Manufacturer</mat-label>
+      <mat-select formControlName="manufacturer">
+        <mat-option *ngFor="let m of manufacturer" value="{{m}}">{{m}}</mat-option>
+      </mat-select>
     </mat-form-field>
-  </p>
-  <p>
+  </div>
+  
+
     <mat-form-field appearance="outline">
-      <mat-label>Manufracturer</mat-label>
-      <input matInput placeholder="Dell, HP..">
+      <mat-label>Other Manufacturer</mat-label>
+      <input matInput placeholder="Other">
     </mat-form-field>
-  </p>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Model</mat-label>
+      <input matInput placeholder="15g-br104TX">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Serial Number</mat-label>
+      <input matInput placeholder="CND8114PQK">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Year of Manufacturing</mat-label>
+      <input matInput placeholder="2015">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Year of Purchase</mat-label>
+      <input matInput placeholder="2016">
+    </mat-form-field>
+
+  
 </form>

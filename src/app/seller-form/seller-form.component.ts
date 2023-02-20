@@ -32,4 +32,6 @@ export class SellerFormComponent {
     workingMachine:[''],
     howDidItStop:['']
   })
+
+  manufacturer:string[]=['Lenovo','HP','Dell','Apple','Acer','Asus','Samsung','msi']
 }
