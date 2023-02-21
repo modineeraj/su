@@ -1,0 +1,24 @@
+.buyerForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5rem 0;
+  .rows{
+      display: flex;
+      justify-content: space-between;
+      mat-form-field{
+        margin: 0 0.5rem;
+      }
+      .radio{
+        width: 14.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+  }
+  .row0{
+    margin-bottom: 1rem;
+  }
+}
+

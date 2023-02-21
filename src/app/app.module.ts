@@ -17,16 +17,19 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { environment } from '../environments/environment';
+import { BuyerFormComponent } from './buyer-form/buyer-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
-    SellerFormComponent
+    SellerFormComponent,
+    BuyerFormComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,8 @@ import { environment } from '../environments/environment';
     MatRadioModule,
     MatChipsModule,
     MatCheckboxModule,
+    MatSnackBarModule,
+    MatProgressBarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // for firestore
   ],

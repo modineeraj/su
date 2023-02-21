@@ -24,7 +24,5 @@ export class LandingComponent implements OnInit {
       console.log(data);
     });
   }
-  longText = ``;
-
 
 }

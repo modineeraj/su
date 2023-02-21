@@ -1,0 +1,31 @@
+<form class="buyerForm" [formGroup]="buyerForm" >
+  <div class="rows row0">
+    <mat-chip-listbox formControlName="buyerWish" aria-label="wish selection">
+      <mat-chip-option value="1">I wish to sell Parts only</mat-chip-option>
+      <mat-chip-option value="2">I wish to sell Whole Machine</mat-chip-option>
+    </mat-chip-listbox>
+  </div>
+
+  <div class="rows row1">
+    <mat-form-field appearance="outline">
+      <mat-label>Device Type</mat-label>
+      <mat-select formControlName="deviceType">
+        <mat-option value="laptop">Laptop</mat-option>
+        <mat-option value="desktop">Desktop</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Manufacturer</mat-label>
+      <mat-select formControlName="manufacturer">
+        <mat-option *ngFor="let m of manufacturer" value="{{m}}">{{m}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Model</mat-label>
+      <input matInput formControlName="model" placeholder="15g-br104TX">
+    </mat-form-field>
+
+  </div>
+</form>

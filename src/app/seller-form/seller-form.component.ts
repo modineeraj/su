@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./seller-form.component.scss']
 })
 export class SellerFormComponent {
-  constructor(private fb:FormBuilder, private db: DataService){}
+  constructor(private fb:FormBuilder, private db: DataService, private router: Router){}
   sellerForm: FormGroup= this.fb.group({
     sellerWish: [''],
     deviceType: ['laptop'],
@@ -47,5 +48,6 @@ export class SellerFormComponent {
     console.log('tested');
     console.log(this.sellerForm)
     this.db.create(this.sellerForm.value);
+    this.router.navigate([""]);
   }
 }
