@@ -27,5 +27,14 @@
       <input matInput formControlName="model" placeholder="15g-br104TX">
     </mat-form-field>
 
+    <div >
+      <button class="searchButton" mat-raised-button (click)="fetchData()">Search</button>
+      <button class="resetButton" mat-raised-button (click)="resetFilter()">Reset</button>
+    </div>
   </div>
+
+
+
 </form>
+
+<app-get-items [items]="items"></app-get-items>

@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin: 5rem 0;
+  margin: 2rem 0 0;
   .rows{
       display: flex;
       justify-content: space-between;
@@ -19,6 +19,14 @@
   }
   .row0{
     margin-bottom: 1rem;
+  }
+  .searchButton{
+    height: 3.3rem;
+    margin-right: 1rem;
+    margin-left: 0.6rem;
+  }
+  .resetButton{
+    height: 3.3rem;
   }
 }
 

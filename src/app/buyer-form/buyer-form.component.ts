@@ -9,23 +9,24 @@ import { map } from 'rxjs';
   templateUrl: './buyer-form.component.html',
   styleUrls: ['./buyer-form.component.scss']
 })
-export class BuyerFormComponent implements OnChanges {
+export class BuyerFormComponent {
   constructor(private fb:FormBuilder, private db: DataService, private router: Router){}
+  ngOnInit(){
+    this.fetchData();
+  }
+  items: any[] =[];
   buyerForm: FormGroup= this.fb.group({
     buyerWish: [''],
-    deviceType: ['laptop'],
+    deviceType: [''],
     manufacturer:[''],
     model:['']
   })
-  ngOnChanges(changes: SimpleChanges){
-    console.log('tested');
-  }
 
   manufacturer:string[]=['Lenovo','HP','Dell','Apple','Acer','Asus','Samsung','MSI','Sony','Compaq', "Others"]
 
-  fetchData(event: any){
+  fetchData(){
     //Fetch from UI
-    console.log('from UI ' , event.target.value);
+    console.log('from UI ');
     console.log(this.buyerForm.value);
     //Fetch from DB
     this.db.getAll().snapshotChanges().pipe(
@@ -37,7 +38,12 @@ export class BuyerFormComponent implements OnChanges {
     ).subscribe(data => {
       console.log("data in buyer");
       console.log(data);
+      this.items = data;
     });
+  }
+  resetFilter(){
+    console.log('inside reset');
+    this.buyerForm.reset();
   }
 
 }

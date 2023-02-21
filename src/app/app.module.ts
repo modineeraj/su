@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatButtonModule} from '@angular/material/button';
+import {MatButtonModule, MatIconButton} from '@angular/material/button';
 import { SellerFormComponent } from './seller-form/seller-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -23,13 +23,23 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { environment } from '../environments/environment';
 import { BuyerFormComponent } from './buyer-form/buyer-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import { GetItemsComponent } from './get-items/get-items.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ShowItemComponent } from './show-item/show-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     SellerFormComponent,
-    BuyerFormComponent
+    BuyerFormComponent,
+    NavbarComponent,
+    GetItemsComponent,
+    ShowItemComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +58,10 @@ import { BuyerFormComponent } from './buyer-form/buyer-form.component';
     MatCheckboxModule,
     MatSnackBarModule,
     MatProgressBarModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatGridListModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // for firestore
   ],
