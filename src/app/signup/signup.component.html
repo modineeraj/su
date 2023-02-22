@@ -5,8 +5,8 @@
         <ng-template matStepLabel>Full Name</ng-template>
         <mat-form-field appearance="fill">
           <mat-label>Name</mat-label>
-          <input matInput placeholder="First name Last name" formControlName="firstCtrl" required>
-          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(firstFormGroup.get('firstCtrl')?.valid || firstFormGroup.get('firstCtrl')?.untouched)">
+          <input matInput placeholder="First name Last name" formControlName="fullName" required>
+          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(firstFormGroup.get('fullName')?.valid || firstFormGroup.get('fullName')?.untouched)">
             Enter only Valid alphabates no special charaters allowed
           </div>
         </mat-form-field>
@@ -22,16 +22,18 @@
         <ng-template matStepLabel>Contact details</ng-template>
         <mat-form-field appearance="fill" class="mx-4">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="example@abc.com" formControlName="secondCtrl1" required >
-          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(secondFormGroup.get('secondCtrl1')?.valid ||secondFormGroup.get('secondCtrl1')?.untouched)">
+          <input matInput placeholder="example@abc.com" formControlName="email" required >
+          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(secondFormGroup.get('email')?.valid ||secondFormGroup.get('email')?.untouched)">
             Enter valid email
           </div>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+
+
+        <mat-form-field appearance="fill" class="mx-4">
           <mat-label>Mobile number</mat-label>
-          <input matInput type="number" placeholder="9731433009" formControlName="secondCtrl2" required >
-          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(secondFormGroup.get('secondCtrl2')?.valid ||secondFormGroup.get('secondCtrl2')?.untouched )">
+          <input matInput type="number" placeholder="9731433009" formControlName="mobile" required >
+          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(secondFormGroup.get('mobile')?.valid ||secondFormGroup.get('mobile')?.untouched )">
             Enter valid Mobile Number
           </div>
         </mat-form-field>
@@ -49,7 +51,7 @@
         <ng-template matStepLabel>Fill out your address</ng-template>
         <mat-form-field appearance="fill">
           <mat-label>Address</mat-label>
-          <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="thirdCtrl"
+          <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="address"
                  required>
         </mat-form-field>
         <div>
@@ -60,13 +62,24 @@
       </form>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Confirmation</ng-template>
-      <p>Are you ready to Sign up?</p>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-        <button mat-button (click)="stepper.reset()">Sign Up</button>
-      </div>
+      <form [formGroup]="userFormGroup">
+        <ng-template matStepLabel>Confirmation</ng-template>
+
+        <mat-form-field appearance="fill" >
+          <mat-label>Set your Password</mat-label>
+          <input type="password" matInput placeholder="Hu%f7nI" formControlName="password" required >
+          <!-- <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(secondFormGroup.get('secondCtrl3')?.valid ||secondFormGroup.get('secondCtrl3')?.untouched)">
+            Enter valid Password
+          </div> -->
+        </mat-form-field>
+
+        <p>Are you ready to Sign up?</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button (click)="signup()">Sign Up</button>
+        </div>
+      </form>
     </mat-step>
   </mat-stepper>
 </div>
