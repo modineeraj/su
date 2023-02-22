@@ -54,7 +54,7 @@ export class BuyerFormComponent {
         if(this.buyerForm.value.buyerWish != null){
           this.itemsTemp = this.items.filter(item=>{
             if(item.sellerWish === this.buyerForm.value.buyerWish){
-              console.log("inside IFFF", item);
+            //  console.log("inside IFFF", item);
               return item;
             }
           })
@@ -63,7 +63,7 @@ export class BuyerFormComponent {
         if(this.buyerForm.value.deviceType != null){
           this.itemsTemp = this.items.filter(item=>{
             if(item.deviceType === this.buyerForm.value.deviceType){
-              console.log("inside 2nd IFFF", item);
+            //  console.log("inside 2nd IFFF", item);
               return item;
             }
           })
@@ -72,7 +72,7 @@ export class BuyerFormComponent {
         if(this.buyerForm.value.manufacturer != null){
           this.itemsTemp = this.items.filter(item=>{
             if(item.manufacturer === this.buyerForm.value.manufacturer){
-              console.log("inside 3rd IFFF", item);
+             // console.log("inside 3rd IFFF", item);
               return item;
             }
           })
@@ -81,7 +81,7 @@ export class BuyerFormComponent {
         if(this.buyerForm.value.model != null){
           this.itemsTemp = this.items.filter(item=>{
             if(item.model === this.buyerForm.value.model){
-              console.log("inside 4th IFFF", item);
+             // console.log("inside 4th IFFF", item);
               return item;
             }
           })

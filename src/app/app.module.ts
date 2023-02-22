@@ -22,6 +22,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { environment } from '../environments/environment';
+
 import { BuyerFormComponent } from './buyer-form/buyer-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -30,6 +31,8 @@ import { GetItemsComponent } from './get-items/get-items.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ShowItemComponent } from './show-item/show-item.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { ShowItemComponent } from './show-item/show-item.component';
     BuyerFormComponent,
     NavbarComponent,
     GetItemsComponent,
-    ShowItemComponent
+    ShowItemComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,7 @@ import { ShowItemComponent } from './show-item/show-item.component';
     MatIconModule,
     MatPaginatorModule,
     MatGridListModule,
+    MatStepperModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // for firestore
   ],

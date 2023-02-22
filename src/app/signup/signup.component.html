@@ -1,0 +1,72 @@
+<div class="container">
+  <mat-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Full Name</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="First name Last name" formControlName="firstCtrl" required>
+          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(firstFormGroup.get('firstCtrl')?.valid || firstFormGroup.get('firstCtrl')?.untouched)">
+            Enter only Valid alphabates no special charaters allowed
+          </div>
+        </mat-form-field>
+        <div>
+          <!-- <p>Go to a different step to see the error state</p> -->
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup" errorMessage="Contact deatils are required.">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Contact details</ng-template>
+        <mat-form-field appearance="fill" class="mx-4">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="example@abc.com" formControlName="secondCtrl1" required >
+          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(secondFormGroup.get('secondCtrl1')?.valid ||secondFormGroup.get('secondCtrl1')?.untouched)">
+            Enter valid email
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Mobile number</mat-label>
+          <input matInput type="number" placeholder="9731433009" formControlName="secondCtrl2" required >
+          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(secondFormGroup.get('secondCtrl2')?.valid ||secondFormGroup.get('secondCtrl2')?.untouched )">
+            Enter valid Mobile Number
+          </div>
+        </mat-form-field>
+        <div>
+          <!-- <p>Go to a different step to see the error state</p> -->
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+    <mat-step [stepControl]="thirdFormGroup" errorMessage="Address is required.">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="thirdCtrl"
+                 required>
+        </mat-form-field>
+        <div>
+          <!-- <p>Go to a different step to see the error state</p> -->
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Confirmation</ng-template>
+      <p>Are you ready to Sign up?</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="stepper.reset()">Sign Up</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>
