@@ -21,7 +21,7 @@ export class LandingComponent implements OnInit {
       )
     ).subscribe(data => {
       //console.log("data ");
-      //console.log(data);
+      console.log(data);
     });
   }
 
