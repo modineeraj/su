@@ -21,21 +21,21 @@ export class ShowItemComponent {
       console.log("this.id ", this.id);
     });
   //Fetch from DB
-  this.db.getAll().snapshotChanges().pipe(
-    map(changes =>
-      changes.map(c =>
-        ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-      )
-    )
-  ).subscribe(data => {
+  // this.db.getAll().snapshotChanges().pipe(
+  //   map(changes =>
+  //     changes.map(c =>
+  //       ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+  //     )
+  //   )
+  // ).subscribe(data => {
 
-    this.showItemTemp = data.filter(temp=>{
+  //   this.showItemTemp = data.filter(temp=>{
 
-      return temp.id.toString()===this.id.toString()
-    })[0];
-    console.log("data in showItemTemp");
-    console.log(this.showItemTemp);
-  });
+  //     return temp.id.toString()===this.id.toString()
+  //   })[0];
+  //   console.log("data in showItemTemp");
+  //   console.log(this.showItemTemp);
+  // });
 
   }
 
