@@ -3,7 +3,8 @@ const db=require('./db_connect');
 const cors=require('cors');
 const bodyParser=require('body-parser');
 const port=3000;
-const router=require('./seller_route');
+const sellerRouter=require('./seller_route');
+const userRouter=require('./user_route');
 
 const app=express();
 app.use(express.static('public'));
@@ -15,7 +16,8 @@ app.use(cors({
 ));
 
 
-app.use(router);
+app.use(sellerRouter);
+app.use(userRouter);
 
 app.listen(port,()=>{
     console.log('listening on 3000')

@@ -2,24 +2,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, tap } from 'rxjs';
-//import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-//  private dbPath = '/scrap-seller';
-
-//  dataRef: AngularFirestoreCollection<any>;
-
-  // constructor(private db: AngularFirestore, private _snackbar:MatSnackBar) {
-  //   this.dataRef = db.collection(this.dbPath);
-  // }
-
-  // getAll(): AngularFirestoreCollection<any> {
-  //   return this.dataRef;
-  // }
 
   constructor(private _snackbar:MatSnackBar, private http:HttpClient){
 
@@ -36,8 +23,6 @@ export class DataService {
         }
       })
     );
-    
-   // return this.dataRef.add({ ...sellerData });
   }
 
 

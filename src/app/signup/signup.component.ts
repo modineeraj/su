@@ -17,20 +17,21 @@ import { UserauthService } from '../services/userauth.service';
 export class SignupComponent {
   alphabetPattern = /^[a-zA-Z" "]+$/;
   firstFormGroup = this._formBuilder.group({
-    fullName: ['', [Validators.required,Validators.pattern(this.alphabetPattern)]],
+   // fullName: ['', [Validators.required,Validators.pattern(this.alphabetPattern)]],
   });
   secondFormGroup = this._formBuilder.group({
-    email: ['', [Validators.required, Validators.email]],
-    mobile: ['', [Validators.required, Validators.pattern('[0-9]\\d{9}')]],
+    // email: ['', [Validators.required, Validators.email]],
+    // mobile: ['', [Validators.required, Validators.pattern('[0-9]\\d{9}')]],
   });
   thirdFormGroup = this._formBuilder.group({
-    address: ['', Validators.required],
+  //  address: ['', Validators.required],
   });
 
   userFormGroup = this._formBuilder.group({
-    userName: this.firstFormGroup,
-    emailMobile: this.secondFormGroup,
-    address: this.thirdFormGroup,
+    userName: ['', [Validators.required,Validators.pattern(this.alphabetPattern)]],
+    email: ['', [Validators.required, Validators.email]],
+    mobile: ['', [Validators.required, Validators.pattern('[0-9]\\d{9}')]],
+    address: ['', Validators.required],
     password: [''],
     active: [true],
   })
@@ -42,8 +43,13 @@ export class SignupComponent {
 
   signup(){
     console.log("userFormGroup-->", this.userFormGroup.value);
-    this.authService.signUp(this.userFormGroup.value);
+    //this.authService.signUp(this.userFormGroup.value);
+    this.authService.SetUserData(this.userFormGroup.value).subscribe(serverResponse=>{
+      console.log("serverResponse--> ",serverResponse);
+    });
 
   }
+
+
 
 }

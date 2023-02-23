@@ -4,6 +4,7 @@ import { BuyerFormComponent } from './buyer-form/buyer-form.component';
 import { LandingComponent } from './landing/landing.component';
 import { SellerFormComponent } from './seller-form/seller-form.component';
 import { ShowItemComponent } from './show-item/show-item.component';
+import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path:'buyer',component:BuyerFormComponent},
   {path:'showItem/:id',component:ShowItemComponent},
   {path:'signup',component:SignupComponent},
+  {path:'signin',component:SigninComponent},
   {path:'',component:LandingComponent}
 ];
 

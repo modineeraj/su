@@ -1,12 +1,12 @@
 <div class="container">
   <mat-stepper #stepper>
     <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
-      <form [formGroup]="firstFormGroup">
+      <form [formGroup]="userFormGroup">
         <ng-template matStepLabel>Full Name</ng-template>
         <mat-form-field appearance="fill">
           <mat-label>Name</mat-label>
-          <input matInput placeholder="First name Last name" formControlName="fullName" required>
-          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(firstFormGroup.get('fullName')?.valid || firstFormGroup.get('fullName')?.untouched)">
+          <input matInput placeholder="First name Last name" formControlName="userName" required>
+          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(userFormGroup.get('userName')?.valid || userFormGroup.get('userName')?.untouched)">
             Enter only Valid alphabates no special charaters allowed
           </div>
         </mat-form-field>
@@ -18,12 +18,12 @@
     </mat-step>
 
     <mat-step [stepControl]="secondFormGroup" errorMessage="Contact deatils are required.">
-      <form [formGroup]="secondFormGroup">
+      <form [formGroup]="userFormGroup">
         <ng-template matStepLabel>Contact details</ng-template>
         <mat-form-field appearance="fill" class="mx-4">
           <mat-label>Email</mat-label>
           <input matInput placeholder="example@abc.com" formControlName="email" required >
-          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(secondFormGroup.get('email')?.valid ||secondFormGroup.get('email')?.untouched)">
+          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(userFormGroup.get('email')?.valid ||userFormGroup.get('email')?.untouched)">
             Enter valid email
           </div>
         </mat-form-field>
@@ -33,7 +33,7 @@
         <mat-form-field appearance="fill" class="mx-4">
           <mat-label>Mobile number</mat-label>
           <input matInput type="number" placeholder="9731433009" formControlName="mobile" required >
-          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(secondFormGroup.get('mobile')?.valid ||secondFormGroup.get('mobile')?.untouched )">
+          <div class="text-danger" style="font-size: 0.75rem;" *ngIf="!(userFormGroup.get('mobile')?.valid ||userFormGroup.get('mobile')?.untouched )">
             Enter valid Mobile Number
           </div>
         </mat-form-field>
@@ -47,7 +47,7 @@
 
 
     <mat-step [stepControl]="thirdFormGroup" errorMessage="Address is required.">
-      <form [formGroup]="thirdFormGroup">
+      <form [formGroup]="userFormGroup">
         <ng-template matStepLabel>Fill out your address</ng-template>
         <mat-form-field appearance="fill">
           <mat-label>Address</mat-label>

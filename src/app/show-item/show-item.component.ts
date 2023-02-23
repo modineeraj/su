@@ -20,23 +20,12 @@ export class ShowItemComponent {
       this.id = param["id"];
       console.log("this.id ", this.id);
     });
-  //Fetch from DB
-  // this.db.getAll().snapshotChanges().pipe(
-  //   map(changes =>
-  //     changes.map(c =>
-  //       ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-  //     )
-  //   )
-  // ).subscribe(data => {
 
-  //   this.showItemTemp = data.filter(temp=>{
-
-  //     return temp.id.toString()===this.id.toString()
-  //   })[0];
-  //   console.log("data in showItemTemp");
-  //   console.log(this.showItemTemp);
-  // });
-
-  }
-
-}
+    //Fetch from DB
+    this.db.getData().subscribe(data=>{
+      this.showItemTemp = data.filter((temp: any)=>{
+        return temp.id.toString()===this.id.toString()
+      })[0];
+    })//end fetch
+  }//end ngoninit
+}//end export

@@ -1,0 +1,16 @@
+.container{
+  display: flex;
+  justify-content: center;
+  margin-top: 6rem;
+  .example-card {
+    width: 25rem;
+    .loginCard{
+      display: flex;
+      flex-direction: column;
+
+    }
+    mat-card-actions{
+      margin-bottom: 1rem;
+    }
+  }
+}
