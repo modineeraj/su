@@ -21,7 +21,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
-import { environment } from '../environments/environment';
 
 import { BuyerFormComponent } from './buyer-form/buyer-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -33,9 +32,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ShowItemComponent } from './show-item/show-item.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { SignupComponent } from './signup/signup.component';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { HttpClientModule } from '@angular/common/http';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -46,10 +44,12 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     NavbarComponent,
     GetItemsComponent,
     ShowItemComponent,
-    SignupComponent
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
@@ -69,12 +69,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     MatIconModule,
     MatPaginatorModule,
     MatGridListModule,
-    MatStepperModule,
-    AngularFireAuthModule,
-    AngularFireStorageModule,
-    AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // for firestore
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

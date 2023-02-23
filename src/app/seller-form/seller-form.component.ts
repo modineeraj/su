@@ -11,31 +11,31 @@ import { DataService } from '../services/data.service';
 export class SellerFormComponent {
   constructor(private fb:FormBuilder, private db: DataService, private router: Router){}
   sellerForm: FormGroup= this.fb.group({
-    sellerWish: [''],
+    sellerWish: ['I wish to sell Parts only'],
     deviceType: ['laptop'],
-    manufacturer:[''],
+    manufacturer:['hp'],
     otherManufacturer:[''],
-    model:[''],
-    serialNumber:[''],
-    yearOfManufacture:[''],
-    yearOfPurchase:[''],
+    model:['123asd'],
+    serialNumber:['qsdcccc123'],
+    yearOfManufacture:['2016'],
+    yearOfPurchase:['2017'],
     configuration:this.fb.group({
-      processor:[''],
-      ram:[''],
-      ramType:[''],
-      storage:[''],
-      storageHDD:[''],
-      storageSSD:[''],
-      graphicCard:[''],
-      dvd:[''],
-      battery:['']
+      processor:['i5 8gen'],
+      ram:['16GB'],
+      ramType:['DDR4'],
+      storage:['SSD'],
+      storageHDD:['256GB'],
+      storageSSD:['256GB'],
+      graphicCard:['6GB'],
+      dvd:['NO'],
+      battery:['Original']
     }),
-    charger:[''],
-    customized:[''], //y/n
-    customConfiguration:[''],
-    inWarranty:[''],
-    workingMachine:[''],
-    howDidItStop:['']
+    charger:['Original'],
+    customized:['No'], //y/n
+    customConfiguration:['No'],
+    inWarranty:['Yes'],
+    workingMachine:['Yes'],
+    howDidItStop:['Dont know']
   })
 
   manufacturer:string[]=['Lenovo','HP','Dell','Apple','Acer','Asus','Samsung','MSI','Sony','Compaq', "Others"]
@@ -47,7 +47,9 @@ export class SellerFormComponent {
   submit(){
     console.log('tested');
     console.log(this.sellerForm)
-    this.db.create(this.sellerForm.value);
+    this.db.create(this.sellerForm.value).subscribe(serverResposne=>{
+      console.log('server response',serverResposne); 
+    });
     this.router.navigate([""]);
   }
 }

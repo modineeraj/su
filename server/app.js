@@ -1,9 +1,24 @@
-const os = require('os');
+const express=require('express');
+const db=require('./db_connect');
+const cors=require('cors');
+const bodyParser=require('body-parser');
+const port=3000;
+const sellerRouter=require('./seller_route');
+const userRouter=require('./user_route');
 
-console.log('Operating system:', os.type());
-console.log('OS platform:', os.platform());
-console.log('OS release:', os.release());
-console.log('CPU architecture:', os.arch());
-console.log('Total system memory:', os.totalmem() / (1024 * 1024 * 1024) + ' GB');
-console.log('Free system memory:', os.freemem() / (1024 * 1024 * 1024) + ' GB');
-console.log('Home directory:', os.homedir());
+const app=express();
+app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(cors({
+    credentials:true,
+    origin:true}
+));
+
+
+app.use(sellerRouter);
+app.use(userRouter);
+
+app.listen(port,()=>{
+    console.log('listening on 3000')
+})

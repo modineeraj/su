@@ -40,12 +40,12 @@
   </div>
 
   <div class="grid-item">
-    <div class="container">
+    <div class="container" *ngIf="showItemTemp">
       <h2 >{{showItemTemp.manufacturer}} {{showItemTemp.model}}</h2>
       <table>
         <tr>
           <td><strong>Manufacturer</strong></td>
-          <td>{{showItemTemp.otherManufacturer}}</td>
+          <td>{{showItemTemp.manufacturer}}</td>
         </tr>
         <tr>
           <td><strong>Model</strong></td>
@@ -117,12 +117,12 @@
   </div>
 
   <div class="grid-item">
-    <div class="container">
+    <div class="container" *ngIf="showItemTemp">
       <h2 >{{showItemTemp.manufacturer}} {{showItemTemp.model}}</h2>
       <table>
         <tr>
           <td><strong>Manufacturer</strong></td>
-          <td>{{showItemTemp.otherManufacturer}}</td>
+          <td>{{showItemTemp!.manufacturer}}</td>
         </tr>
         <tr>
           <td><strong>Model</strong></td>
